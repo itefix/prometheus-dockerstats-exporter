@@ -145,7 +145,7 @@ Build the image locally with `docker build -t prometheus-dockerstats-exporter:lo
 
 The project follows [Semantic Versioning](https://semver.org/) and keeps a [CHANGELOG](CHANGELOG.md). To release:
 
-1. Move the `Unreleased` entries in `CHANGELOG.md` under a new `## [X.Y.Z] - YYYY-MM-DD` heading and update the compare links at the bottom.
+1. Add a new `## [X.Y.Z] - YYYY-MM-DD` section to `CHANGELOG.md` describing the changes, and add its link at the bottom.
 2. Commit and push to `main`.
 3. Tag and push: `git tag X.Y.Z && git push origin X.Y.Z`.
 
