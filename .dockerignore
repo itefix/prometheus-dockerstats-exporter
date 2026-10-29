@@ -1,0 +1,7 @@
+.git
+.gitignore
+README.md
+grafana-dashboard-dockerstats.png
+grafana-dashboard.json
+LICENSE
+prometheus-config-example.yml
