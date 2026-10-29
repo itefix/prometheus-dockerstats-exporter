@@ -18,6 +18,16 @@ A lightweight Prometheus exporter for Docker container statistics. The supported
 
 The exporter container needs access to the Docker daemon socket to collect statistics. Access to this socket is highly privileged and can grant control over the host; only run a trusted exporter image and protect access to the metrics endpoint according to your environment.
 
+## Published image
+
+Tagged releases are built by GitHub Actions and published to the GitHub Container Registry for `linux/amd64` and `linux/arm64`:
+
+```bash
+docker pull ghcr.io/itefix/prometheus-dockerstats-exporter:latest
+```
+
+Pushing a tag such as `1.2.3` (or `v1.2.3`) publishes `1.2.3`, `1.2`, `1` and `latest`. A weekly workflow removes untagged images older than 30 days. In the examples below, replace `prometheus-dockerstats-exporter:local` with the published image name if you do not build locally.
+
 ## Build and run
 
 Build the image from the repository:
@@ -130,6 +140,16 @@ Import [grafana-dashboard.json](grafana-dashboard.json) into Grafana and select 
 ## Development
 
 Build the image locally with `docker build -t prometheus-dockerstats-exporter:local .` and run it using the instructions above. The exporter is intended to run inside the image rather than directly on the host.
+
+## Versioning and releases
+
+The project follows [Semantic Versioning](https://semver.org/) and keeps a [CHANGELOG](CHANGELOG.md). To release:
+
+1. Move the `Unreleased` entries in `CHANGELOG.md` under a new `## [X.Y.Z] - YYYY-MM-DD` heading and update the compare links at the bottom.
+2. Commit and push to `main`.
+3. Tag and push: `git tag X.Y.Z && git push origin X.Y.Z`.
+
+The tag push triggers [build-image.yml](.github/workflows/build-image.yml). [cleanup-images.yml](.github/workflows/cleanup-images.yml) runs weekly and can be started manually with an optional dry run.
 
 ## License
 

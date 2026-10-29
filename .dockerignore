@@ -5,3 +5,5 @@ grafana-dashboard-dockerstats.png
 grafana-dashboard.json
 LICENSE
 prometheus-config-example.yml
+.github
+CHANGELOG.md
